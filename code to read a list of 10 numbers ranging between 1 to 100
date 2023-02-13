@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    List<Integer> numbers = new ArrayList<>(); //New instance of ArrayList class of 'Integer' type
+    Scanner scan = new Scanner(System.in); //New instance of scanner class is used to input numbers
+
+    System.out.println("Enter 10 numbers between 1 and 100: ");
+
+//Code to Read 10 numbers and to add them to the list
+    for (int i = 0; i < 10; i++) {
+      int x = scan.nextInt();
+
+      if (x >= 1 && x <= 100) {
+        numbers.add(x);
+      } else {
+        System.out.println("Invalid input");
+        i--;
+      }
+    }
+
+    Set<Integer> uniqueSet = new HashSet<>(numbers); //New instance of 'HashSet' class to get unique numbers and remove duplicates
+    numbers.clear(); //Clearing the list
+    numbers.addAll(uniqueSet); //addAll method is used to add all elements to the numbers list
+    Collections.sort(numbers, Collections.reverseOrder()); //Collections.sort method is used to sort the numbers list in descending order
+
+    System.out.println("The sorted, deduplicated list of numbers is: " + numbers); //Printing the Result
+  }
+}
